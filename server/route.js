@@ -4,11 +4,22 @@ const cors = require('cors');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const {
+    tableTest
+  } = require("./DB/queries");
+  const pool = require("./DB/index");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.get("/", async (req, res) => {
+    const DBdata = await pool.query(tableTest());
+    console.log(DBdata);
+    res.json(DBdata);
+  });
 
+
+module.exports = app;
 const port = 3000;
 app.listen(port, () => console.log(`listening on port ${port}!`))
