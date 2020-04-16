@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Comment from './Componets/Comments'
+import Com from './Componets/Com'
 
 function App() {
   return (
-    <div className="App">
-      Hello world
+    <div >
+      <Com />
     </div>
   );
 }
