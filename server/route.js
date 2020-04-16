@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
     const DBdata = await pool.query(tableTest());
-    console.log(DBdata);
     res.json(DBdata);
   });
 
