@@ -19,7 +19,7 @@ export default class Com extends Component {
           {console.log(this.state.data)}
         return (  
             <div>
-               <h1>{this.state.data.map(item => item.data)}</h1>
+               <h1>{this.state.data.map(item => item.date)}</h1>
             </div>
         )
     }
