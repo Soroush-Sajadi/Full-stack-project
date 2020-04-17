@@ -5,7 +5,8 @@ const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const {
-    tableTest
+    tableTest,
+    tablePost
   } = require("./DB/queries");
   const pool = require("./DB/index");
 
@@ -17,6 +18,12 @@ app.get("/", async (req, res) => {
     const DBdata = await pool.query(tableTest());
     res.json(DBdata.rows);
   });
+app.post("/comment", async (req, res) => {
+    const comment = req.body.comment;
+    const date = req.body.date;
+    const DBdata = await pool.query(tablePost(comment,date))
+    res.json(DBdata.row);
+})  
 
 
 module.exports = app;
