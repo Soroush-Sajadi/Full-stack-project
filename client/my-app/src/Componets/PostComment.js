@@ -6,16 +6,25 @@ export default class PostComment extends Component {
         super();
         this.state = {
             data : [],
-            input: null
+            input: null,
+            date: null,
         }
     }
     handleChange = (e) => {
-        this.setState({ input: e.target.value });
-        console.log(this.state.input);
+        this.setState({ input: e.target.value,date: new Date().toLocaleDateString() });
     }
-
-    handleClick = async () => {
-        await fetch(`http://localhost:3000/`,option)
+    
+    handleClick = async (e) => {
+        e.preventDefault();
+        console.log(this.state.date);
+        await fetch (`http://localhost:3000/comment`, {
+            method: 'post',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+             "comment": this.state.input,
+             "date": this.state.date
+            })
+        })
     }
 
     render() {

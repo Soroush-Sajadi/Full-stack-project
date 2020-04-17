@@ -14,11 +14,12 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.get("/", async (req, res) => {
+app.get('/', async (req, res) => {
     const DBdata = await pool.query(tableTest());
     res.json(DBdata.rows);
   });
-app.post("/comment", async (req, res) => {
+app.post('/comment', async (req, res) => {
+    console.log(req.body);
     const comment = req.body.comment;
     const date = req.body.date;
     const DBdata = await pool.query(tablePost(comment,date))
