@@ -1,0 +1,7 @@
+.wraper {
+  padding: 0 20%;
+}
+.card {
+  display: flex;
+  border: 1px solid black
+}

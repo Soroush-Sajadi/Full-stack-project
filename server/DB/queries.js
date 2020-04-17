@@ -5,7 +5,7 @@ const tableTest = () => {
 const tablePost = (comment, date) => {
   return `INSERT INTO public.comments(
     comment, date)
-    VALUES ('${comment}', ${date});`
+    VALUES ('${comment}', '${date}')`
 
 }
   

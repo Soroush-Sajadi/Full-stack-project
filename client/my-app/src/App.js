@@ -1,7 +1,7 @@
 import React from 'react';
-//import Comment from './Componets/Comments'
 import RenderComment from './Componets/RenderComment'
 import PostComment from './Componets/PostComment';
+import './Componets/CSS/App.css'
 
 function App() {
   return (

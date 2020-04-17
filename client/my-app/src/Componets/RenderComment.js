@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./CSS/RenderComment.css"
 
 export default class RenderComment extends Component {
     constructor(props) {
@@ -16,10 +17,12 @@ export default class RenderComment extends Component {
         }
       
       render() {
-          {console.log(this.state.data)}
         return (  
-            <div>
-               <h1>{this.state.data.map(item => item.date)}</h1>
+            <div className="wraper">
+               {this.state.data.map(item => {
+                   return <div className="card">
+                       <p className="task">{item.comment}</p>
+                       <p className="date">{item.date}</p></div>})}
             </div>
         )
     }

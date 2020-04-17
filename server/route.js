@@ -19,7 +19,6 @@ app.get('/', async (req, res) => {
     res.json(DBdata.rows);
   });
 app.post('/comment', async (req, res) => {
-    console.log(req.body);
     const comment = req.body.comment;
     const date = req.body.date;
     const DBdata = await pool.query(tablePost(comment,date))

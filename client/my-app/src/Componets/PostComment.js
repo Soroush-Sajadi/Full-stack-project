@@ -16,7 +16,6 @@ export default class PostComment extends Component {
     
     handleClick = async (e) => {
         e.preventDefault();
-        console.log(this.state.date);
         await fetch (`http://localhost:3000/comment`, {
             method: 'post',
             headers: {'Content-Type':'application/json'},
