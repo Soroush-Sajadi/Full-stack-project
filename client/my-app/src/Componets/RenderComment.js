@@ -6,8 +6,8 @@ export default class RenderComment extends Component {
         super(props);
         this.state = {
             data: [],
+            
         };
-        console.log(props)
     }      
 
     async componentDidMount() {
@@ -23,7 +23,7 @@ export default class RenderComment extends Component {
                {this.state.data.map(item => {
                    return <div className="card">
                        <p className="task">{item.comment}</p>
-                       <p className="date">{item.date}</p></div>})}  
+                       <p className="date">{item.date}</p></div>})}
             </div>
         )
     }

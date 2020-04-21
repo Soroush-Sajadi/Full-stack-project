@@ -1,7 +1,12 @@
 .wraper {
   padding: 0 20%;
+  margin-top: 15%;
 }
 .card {
   display: flex;
-  border: 1px solid black
+  margin-top: 10px;
+  height: 120px;
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
 }
