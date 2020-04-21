@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import RenderComment from './RenderComment';
 
 
 export default class PostComment extends Component {
@@ -11,11 +12,14 @@ export default class PostComment extends Component {
         }
     }
     handleChange = (e) => {
-        this.setState({ input: e.target.value,date: new Date().toLocaleDateString() });
+        this.setState({ input: e.target.value, date: new Date().toLocaleDateString() });
     }
     
     handleClick = async (e) => {
         e.preventDefault();
+        this.setState({
+            data: [...this.state.data, this.state.input]
+          });
         await fetch (`http://localhost:3000/comment`, {
             method: 'post',
             headers: {'Content-Type':'application/json'},
@@ -24,6 +28,8 @@ export default class PostComment extends Component {
              "date": this.state.date
             })
         })
+        
+        
     }
 
     render() {
@@ -31,6 +37,12 @@ export default class PostComment extends Component {
           <div>
             <input className="input" type="text" placeholder="What do you want to do" onChange={ this.handleChange } />
             <input className="button" type="button" value="Search" onClick={this.handleClick} />
+            <div className="wraper">
+            {this.state.data.map(item => {
+                   return <div className="card">
+                       <p className="task">{item}</p>
+                       </div>})}
+                       </div>    
           </div>
         )
     }

@@ -7,6 +7,7 @@ export default class RenderComment extends Component {
         this.state = {
             data: [],
         };
+        console.log(props)
     }      
 
     async componentDidMount() {
@@ -18,11 +19,11 @@ export default class RenderComment extends Component {
       
       render() {
         return (  
-            <div className="wraper">
+            <div className="wraper" >
                {this.state.data.map(item => {
                    return <div className="card">
                        <p className="task">{item.comment}</p>
-                       <p className="date">{item.date}</p></div>})}
+                       <p className="date">{item.date}</p></div>})}  
             </div>
         )
     }
