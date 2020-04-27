@@ -33,16 +33,14 @@ export default class PostComment extends Component {
     }
 
     render() {
+        console.log(this.state.data)
         return(
           <div>
             <input className="input" type="text" placeholder="What do you want to do" onChange={ this.handleChange } />
             <input className="button" type="button" value="Search" onClick={this.handleClick} />
             <div className="wraper">
-            {this.state.data.map(item => {
-                   return <div className="card">
-                       <p className="task">{item}</p>
-                       </div>})}
-                       </div>    
+            {this.state.data.map(item => <div className="card"> <p className="task">{item}</p> </div>)}
+            </div>    
           </div>
         )
     }
