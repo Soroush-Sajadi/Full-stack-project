@@ -23,8 +23,8 @@ export default class PostComment extends Component {
     }
     }
 
-    async componentDidUpdate(prevProps) {
-        if (prevProps.newTodoComment !== this.props.newTodoComment) {
+    async componentDidUpdate() {
+        if (this.props.trigerFetch) {
           this.componentDidMount(this.props.newTodoComment)
         }
       };
@@ -32,7 +32,6 @@ export default class PostComment extends Component {
     render() {
         return ( 
           <div>
-              
           </div>
         )
     }

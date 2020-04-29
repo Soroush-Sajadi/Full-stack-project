@@ -17,13 +17,12 @@ export default class RenderComment extends Component {
           .then(data => { this.setState( { data } )
             });
     }
-    async componentDidMount() {
+    componentDidMount() {
             this.getData()
         }
-    async componentDidUpdate(prevProps) {
-        console.log(this.props.newTodoComment)
-        if (prevProps.newTodoComment !== this.props.newTodoComment) {
-            this.getData(this.props.newTodoComment)
+    componentDidUpdate() {
+        if (this.props.trigerFetch) {
+            this.componentDidMount(this.props.newTodoComment)
         }
     };
         handleClick = (e) => {
