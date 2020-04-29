@@ -20,18 +20,26 @@ export default class RenderComment extends Component {
     async componentDidMount() {
             this.getData()
         }
-        click = (e) => {
+    async componentDidUpdate(prevProps) {
+        console.log(this.props.newTodoComment)
+        if (prevProps.newTodoComment !== this.props.newTodoComment) {
+            this.getData(this.props.newTodoComment)
+        }
+    };
+        handleClick = (e) => {
             this.setState({serial: e.target.getAttribute('attr')})
         }
       
       render() {
         return (  
             <div className="wraper" >
-               {this.state.data.map(item => {
-                   return <div attr ={item.serial} onClick={this.click} className="card">
+               {this.state.data.map(item => <div attr ={item.serial} className="card">
                        <p className="task">{item.comment}</p>
-                       <p className="date">{item.date}</p></div>})}
-            {this.state.serial !== null ? (<Delete serial={this.state.serial} />) :null }       
+                       <p className="date">{item.date}</p>
+                       <input attr ={item.serial} className="button" type="button" value="Delete" onClick={this.handleClick} />
+                       </div>
+                    )}
+            {this.state.serial !== null ? (<Delete serial={this.state.serial} />) :null }
             </div>
         )
     }

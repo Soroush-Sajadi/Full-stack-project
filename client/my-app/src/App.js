@@ -1,13 +1,13 @@
 import React from 'react';
-import RenderComment from './Componets/RenderComment'
-import PostComment from './Componets/PostComment';
+import Input from './Componets/Input'
+
 import './Componets/CSS/App.css'
 
 function App() {
   return (
     <div >
-      <PostComment />
-      <RenderComment />
+      <Input/>
+      
     </div>
   );
 }

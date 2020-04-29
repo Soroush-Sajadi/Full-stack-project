@@ -23,6 +23,7 @@ app.get('/', async (req, res) => {
 app.post('/comment', async (req, res) => {
     const comment = req.body.comment;
     const date = req.body.date;
+    console.log(req.body)
     await pool.query(tablePost(comment, date, uuidv4()))
 })
 app.get('/delete/:id', async(req, res) => {
