@@ -30,7 +30,6 @@ export default class RenderComment extends Component {
         }
       
       render() {
-          //console.log(this.props.newTodoComment)
         return (  
             <div className="wraper" >
                {this.state.data.map(item => <div attr ={item.serial} className="card">

@@ -1,0 +1,10 @@
+.input-wraper {
+    text-align: center;    
+    padding: 91px 91px 0 91px;
+}
+.input {
+    width: 80%;
+    border-top: none;
+    border-left:none ;
+    border-right: none;
+}

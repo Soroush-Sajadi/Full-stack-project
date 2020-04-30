@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import RenderComment from './RenderComment';
 import PostComment from './PostComment'
+import './CSS/Input.css'
 
 
 export default class Input extends Component {
@@ -16,20 +17,23 @@ export default class Input extends Component {
         this.setState({ input: e.target.value});
     }
 
-    handleClick = (e) => {
-        this.setState({
-            newTodo: this.state.input });
-            e.preventDefault();
+    handleKeyDown = (e) => {
+     
+      if(e.keyCode == 13){
+        console.log('value', e.target.value);
+        this.setState({newTodo: e.target.value})
+        
+     }
     }
 
     render() {
-      console.log(this.state)
         return ( 
           <div>
-            <input className="input" type="text" placeholder="What do you want to do" onChange={ this.handleChange } />
-            <input className="button" type="button" value="Add" onClick={this.handleClick} />
-              {this.state.newTodo !== null ?(<PostComment newTodoComment={this.state.newTodo} trigerFetch={this.handleClick} />) : null}
-              <RenderComment trigerFetch={this.handleClick} />
+            <div className="input-wraper">
+              <input className="input" type="text" placeholder="What do you want to do"  onKeyDown={ this.handleKeyDown } onChange={this.handleChange}/>
+            </div>
+            {this.state.newTodo !== null ?(<PostComment newTodoComment={this.state.newTodo} trigerFetch={this.handleKeyDown} />) : null}
+            <RenderComment trigerFetch={this.handleKeyDown} />
           </div>
         )
     }

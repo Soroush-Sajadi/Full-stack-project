@@ -7,6 +7,7 @@ export default class PostComment extends Component {
         super(props);
         this.state = {
             data : [],
+            errorMessage : null
         }
     }
     
@@ -26,14 +27,13 @@ export default class PostComment extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.newTodoComment !== this.props.newTodoComment) {
           this.componentDidMount()
-        }
+        } 
       };
 
     render() {
-        //console.log(this.props.newTodoComment)
         return ( 
-          <div>
-          </div>
+          <>
+          </>
         )
     }
     
