@@ -5,18 +5,25 @@ const tableTest = () => {
 const tablePost = (comment, date, serial) => {
   console.log(comment,date,serial)
   return `INSERT INTO public.comments(
-    comment, date, serial)
-    VALUES ('${comment}', '${date}', '${serial}' )`
+    action ,comment, date, serial)
+    VALUES ('false','${comment}', '${date}', '${serial}' )`
 
 }
 
 const tableDelete = (serial) => {
   return `DELETE FROM public.comments
-	WHERE serial = '${serial}'`;
+	  WHERE serial = '${serial}'`;
+}
+
+const tableDone = (serial) => {
+  return ` UPDATE public.comments
+	  SET action='true'
+	  WHERE serial= '${serial}'`;
 }
   
   module.exports = {
     tableTest,
     tablePost,
-    tableDelete
+    tableDelete,
+    tableDone
   };

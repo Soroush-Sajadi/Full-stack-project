@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Delete from './Delete'
+import Done from './Done'
 import "./CSS/RenderComment.css"
 
 export default class RenderComment extends Component {
@@ -7,8 +8,8 @@ export default class RenderComment extends Component {
         super(props);
         this.state = {
             data: [],
-            serial : null
-
+            serialDelete: null,
+            serialDone: null
         };
     }      
     getData = async () => {
@@ -18,27 +19,34 @@ export default class RenderComment extends Component {
             });
     }
     componentDidMount() {
-            this.getData()
+        this.getData()
         }
     componentDidUpdate() {
         if (this.props.trigerFetch) {
             this.getData()
         }
     };
-        handleClick = (e) => {
-            this.setState({serial: e.target.getAttribute('attr')})
+    handleClickDelete = (e) => {
+        this.setState({serialDelete: e.target.getAttribute('attr')})
         }
+    handleClickDone = (e) => {
+      this.setState({serialDone: e.target.getAttribute('attr')})
+      }
       
       render() {
         return (  
             <div className="wraper" >
                {this.state.data.map(item => <div attr ={item.serial} className="card">
-                       <p className="task">{item.comment}</p>
-                       <p className="date">{item.date}</p>
-                       <input attr ={item.serial} className="button" type="button" value="Delete" onClick={this.handleClick} />
+                       <h4 className="task">{item.comment}</h4>
+                       <div className="card-right">
+                          <p className="date">{item.date}</p>
+                          <input attr ={item.serial} className="delete-button" type="button" value="Delete" onClick={this.handleClickDelete} />
+                          <input attr ={item.serial} className="done-button" type="button" value="Done" onClick={this.handleClickDone} />
+                       </div>
                        </div>
                     )}
-            {this.state.serial !== null ? (<Delete serial={this.state.serial} />) :null }
+            {this.state.serialDelete !== null ? (<Delete serial={this.state.serialDelete} />) :null }
+            {this.state.serialDone !== null ? (<Done serial={this.state.serialDone} />) :null }
             </div>
         )
     }

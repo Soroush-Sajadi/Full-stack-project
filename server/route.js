@@ -8,7 +8,8 @@ require('dotenv').config();
 const {
     tableTest,
     tablePost,
-    tableDelete
+    tableDelete,
+    tableDone
   } = require("./DB/queries");
   const pool = require("./DB/index");
 
@@ -28,6 +29,10 @@ app.post('/comment', async (req, res) => {
 app.get('/delete/:id', async(req, res) => {
     const serial = req.params.id;
     await pool.query(tableDelete(serial))
+})
+app.get('/done/:id', async(req, res) => {
+    const serial = req.params.id;
+    await pool.query(tableDone(serial))
 })
 
 

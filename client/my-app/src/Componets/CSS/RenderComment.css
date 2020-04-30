@@ -1,12 +1,39 @@
 .wraper {
-  padding: 0 20%;
+  padding: 0 25%;
   margin-top: 15%;
 }
 .card {
-  display: flex;
   margin-top: 10px;
   height: 120px;
   -webkit-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
   -moz-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
   box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.75);
+}
+.task {
+  font-size: 20px;
+}
+.card-right {
+  float: right;
+}
+.date {
+  font-size: 10px;
+  margin-top: -18px;
+  margin-right: 10px;
+  
+}
+.delete-button {
+  height: 35px;
+  border-radius: 50% ;
+  width: 35px;
+  font-size: 10px;
+  margin-top: 64px;
+  margin-right: 10px;
+}
+.done-button {
+  height: 35px;
+  border-radius: 50% ;
+  width: 35px;
+  font-size: 10px;
+  margin-top: 64px;
+  margin-right: 10px;
 }

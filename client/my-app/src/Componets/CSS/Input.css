@@ -1,6 +1,6 @@
 .input-wraper {
     text-align: center;    
-    padding: 91px 91px 0 91px;
+    padding: 91px 20% 0 20%;
 }
 .input {
     width: 80%;
@@ -8,3 +8,6 @@
     border-left:none ;
     border-right: none;
 }
+::-webkit-input-placeholder {
+    text-align: center;
+ }
