@@ -18,22 +18,20 @@ export default class Input extends Component {
     }
 
     handleKeyDown = (e) => {
-     
       if(e.keyCode == 13){
-        console.log('value', e.target.value);
         this.setState({newTodo: e.target.value})
-        
      }
     }
 
     render() {
         return ( 
           <div>
+            <h2>MY GREAT TODO LIST</h2>
             <div className="input-wraper">
               <input className="input" type="text" placeholder="What do you want to do"  onKeyDown={ this.handleKeyDown } onChange={this.handleChange}/>
             </div>
             {this.state.newTodo !== null ?(<PostComment newTodoComment={this.state.newTodo} trigerFetch={this.handleKeyDown} />) : null}
-            <RenderComment trigerFetch={this.handleKeyDown} />
+            <RenderComment  newTodoComment={this.state.newTodo} trigerFetch={this.handleKeyDown} />
           </div>
         )
     }

@@ -5,18 +5,19 @@ export default class RenderComment extends Component {
         super(props);
         this.state = {
             data: [],
-
         };
     }      
     deleteData = async(serial) => {
-        await fetch(`http://localhost:3000/delete/${serial}`) 
+        await fetch(`http://localhost:3000/delete/${serial}`)
+        
     }
-    async componentDidMount() {
+    componentDidMount() {
         if (this.props.serial !== null) {
            this.deleteData(this.props.serial)
         }
+        this.props.trigerGetData('true');
     }
-    async componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) {
         if (prevProps.serial !== this.props.serial) {
             this.deleteData(this.props.serial)
         }
@@ -24,8 +25,8 @@ export default class RenderComment extends Component {
       
       render() {
         return (  
-            <div className="wraper" >
-            </div>
+            <>
+            </>
         )
     }
 }
